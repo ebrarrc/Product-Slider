@@ -1,0 +1,165 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgba(4, 10, 90, 0.897);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.slider-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+
+.product-slider {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem; 
+    width: 70%;
+    transition: transform 0.5s ease;
+}
+
+.product {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+}
+
+.product:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.product img {
+    width: 100%;
+    height: 15rem;
+    object-fit: contain;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.product h3 {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    color: #2D2D2D;
+}
+
+.product p {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: #2D2D2D;
+}
+
+.quantity-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.quantity-buttons button {
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    border: none;
+    background-color: #000000;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.quantity-buttons button:disabled {
+   pointer-events: visible;
+   cursor: not-allowed;
+}
+
+.quantity-buttons button:hover:not(:disabled) {
+    background-color: #0000009f;
+}
+
+.qtyNumber {
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+    pointer-events: none;
+    border: none;
+}
+
+.no-stock {
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+    font-size: 1.2rem;
+   
+}
+
+.controls {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+    flex: 0 0 15rem;
+}
+
+.controls button {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease , background-color 0.5s;
+    display: flex;
+    align-items: center;
+}
+
+.controls button.hidden {
+    visibility: hidden;
+}
+
+.controls button:hover {
+    background-color: white;
+    color: black;
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+ 
+    .slider-container {
+        width: 100%;
+    }
+    .product{
+        width:100%;
+    }
+    .product-slider{
+        gap: 0;
+        grid-template-columns: none;
+    }
+    .quantity-buttons button {
+        padding: 1rem 1rem;
+    }
+    .controls{
+        flex: 0 0 0rem;
+    }
+    .controls button {
+       padding: 0.5rem 0.5rem;
+    }
+    .no-stock{
+        font-size: 1rem;
+    }
+}
